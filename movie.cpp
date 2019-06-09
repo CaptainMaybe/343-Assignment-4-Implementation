@@ -35,6 +35,7 @@ Movie::Movie(int stock, string directorFirstName, string directorLastName,
     && directorLastName == otherMovie.directorLastName && title == otherMovie.title
     && year == otherMovie.year);
   }
+
    int Movie::getStock()
    {
      return stock;
@@ -71,6 +72,15 @@ Movie::Movie(int stock, string directorFirstName, string directorLastName,
     this->directorLastName = directorLastName;
     this->title = title;
     this->year = year;
+  }
+
+  bool Movie::operator>(const NodeData& other) const
+  {
+    if(typeid(*this) == typeid(other))
+    {
+      cout<<"HERE I AM"<<endl;
+    }
+    return true;
   }
 // Movie::~Movie()
 // {

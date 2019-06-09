@@ -23,22 +23,11 @@ Movie* MovieFactory::createMovie(string in)
   getline(ss, movieType, ',');
 
   getline(ss, stock, ',');
-  //temp>>stock;
-//  getline(ss, directorName, ',');
-  //getline(ss, directorLastName, ',');
+
   ss>>directorFirstName;
   ss>>directorLastName;
   directorLastName.pop_back();
   getline(ss, title, ',');
-  //directorName>>directorFirstName;
-//  directorName>>directorLastName;
-
-  // cout<<"inside movie factory "<<"\n\n";
-  // cout<<"movie type: "<<movieType<<endl;
-  // cout<<"stock: "<<stock<<endl;
-  // cout<<"director First Name: "<<directorFirstName<<endl;
-  // cout<<"director Last Name: "<< directorLastName<<endl;
-  // cout<<"title: "<<title<<endl;
 
   if(movieType == "D")
   {
@@ -57,13 +46,19 @@ Movie* MovieFactory::createMovie(string in)
     ss>>month;
     ss>>year;
 
-    // cout<<"actor first name: "<< majorActorFirstName<<endl;
-    // cout<<"actor last name: "<< majorActorLastName<<endl;
-    // cout<<"month: "<< month<<endl;
-    // cout<<"year: "<< year<<endl;
-
     M = new Classic( stoi(stock),  directorFirstName, directorLastName,
          majorActorFirstName, majorActorLastName, title, month, year);
+  }
+
+  if(movieType == "F")
+  {
+    ss>>year;
+    M = new Comedy(stoi(stock), directorFirstName, directorLastName, title, year);
+    return M;
+  }
+  else
+  {
+    cout<<"Houston, we have a problem!"<<endl;
   }
   return M;
 }

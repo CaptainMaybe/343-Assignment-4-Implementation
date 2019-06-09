@@ -5,6 +5,11 @@ NodeData::NodeData() { data = ""; }                         // default
 
 NodeData::~NodeData() { }            // needed so strings are deleted properly
 
+bool NodeData::operator>(const NodeData &) const
+{
+	cout<<"HERE HERE"<<endl;
+	return true;
+}
 // NodeData::NodeData(const NodeData& nd) { data = nd.data; }  // copy
 //
 // NodeData::NodeData(const string& s) { data = s; }    // cast string to NodeData

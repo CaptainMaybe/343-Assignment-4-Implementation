@@ -20,11 +20,13 @@
 #include "movie.h"
 #include "classic.h"
 #include "drama.h"
+#include "comedy.h"
 
 using namespace std;
 
 class MovieFactory {
 public:
+
 	MovieFactory();		// Constructor
 	//~MovieFactory();	// Destructor
 

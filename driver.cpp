@@ -39,12 +39,6 @@ int main()
   cout<<(*movie2 > *movie5)<<endl;
   cout<< (*movie2).getStock()<<endl;
 
-  cout<<"\n\n Creating a Bin Tree"<<endl;
-  BinTree test1;
-  cout<<test1<<endl;
-  test1.insert(movie1);
-  cout<<test1<<endl;
-
   cout<<"testing Drama creator"<<endl;
   NodeData* movie6 = new Drama(10, "Barry", "Levinson", "Good Morning Vietnam", 1988);
   cout<< *movie6<<endl;
@@ -57,5 +51,30 @@ int main()
   cout<< *movie7<<endl;
   movie8 = MF.createMovie("D, 10, Barry Levinson, Good Morning Vietnam, 1988");
   cout<< *movie8<<endl;
+
+
+  cout<<"testing types of inherited children"<<endl;
+
+  cout<<(typeid(*movie7) == typeid(*movie8))<<endl;
+  cout<<(typeid(*movie7).name())<<endl;
+  cout<<(typeid(*movie8).name())<<endl;
+
+  cout<<(*movie7 > *movie8)<<endl;
+  NodeData* movie9 = MF.createMovie("D, 10, Larry Levinson, Good Morning Vietnam, 1988");
+  cout<<(typeid(*movie9).name())<<endl;
+
+  NodeData* movie10 = MF.createMovie("F, 10, Nora Ephron, Sleepless in Seattle, 1993");
+  cout<< *movie10<<endl;
+
+  cout<<"\n\n Creating a Bin Tree"<<endl;
+  BinTree test1;
+  cout<<test1<<endl;
+  test1.insert(movie7);
+  cout<<test1<<endl;
+  test1.insert(movie10);
+  cout<<test1<<endl;
+  cout<<endl;
+
+
   return 0;
 }

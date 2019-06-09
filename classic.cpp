@@ -56,11 +56,22 @@ bool Classic::operator!=(const NodeData& other) const
   return !(*this==other);
 }
 
+// bool Classic::operator<(const Drama &other) const
+// {
+//   return true;
+// }
+// bool Classic::operator>(const Drama &other) const
+// {
+//   return false;
+// }
 
 bool Classic::operator<(const NodeData &other) const
 {
+  if(typeid(*this)!= typeid(other))
+  {
+    return false;
+  }
 
-  //cout<<"HERE"<<endl;
   const Classic& otherMovie = dynamic_cast<const Classic&>(other);
 
   if(this->year < otherMovie.year)
@@ -90,7 +101,16 @@ bool Classic::operator<(const NodeData &other) const
 bool Classic::operator>(const NodeData &other) const
 {
 
-    //cout<<"HERE"<<endl;
+    if(typeid(*this)!= typeid(other))
+    {
+      string type1 = "5Drama";
+      if(type1.compare(typeid(other).name()) == 0)
+      {
+        return true;
+      }
+      
+      return true;
+    }
     const Classic& otherMovie = dynamic_cast<const Classic&>(other);
 
     if(this->year > otherMovie.year)

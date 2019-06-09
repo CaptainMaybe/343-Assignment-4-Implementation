@@ -50,7 +50,7 @@ class Movie : public NodeData
 
         // virtual function that acts only as an interface. checks if rhs object isi smaller than rhs
         virtual bool operator<(const NodeData &) const = 0;
-        virtual bool operator> (const NodeData&) const = 0; // virtual function that acts only as an interface. checks if the lhs object is bigger than rhs
+        virtual bool operator>(const NodeData&) const = 0; // virtual function that acts only as an interface. checks if the lhs object is bigger than rhs
         virtual bool operator<=(const NodeData &) const = 0;
         virtual bool operator>=(const NodeData &) const = 0;
 

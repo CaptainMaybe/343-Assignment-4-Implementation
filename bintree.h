@@ -31,7 +31,7 @@ public:
 
   /*Copy constructor, constructs a binary tree that has the same values as the
   rhsTree. Deep copy*/
-  BinTree(const BinTree &rhsTree);
+  //BinTree(const BinTree &rhsTree);
 
   //destructor, frees allocated memory used in creation of the binary tree
   ~BinTree();
@@ -49,17 +49,17 @@ public:
   /*adds data from BST to an array. The data is added inorder. The BST is
   destroyed in the process and is empty after completion. Assunes that the array
   has all null values apart from the items added*/
-  void bstreeToArray(NodeData* []);
+  //void bstreeToArray(NodeData* []);
 
   /*converts an array of NodeData * to a balanced tree. The array is left empty
   after completion and all items in it are nullified. Assumes that the array
   contains a maximum of 100 items and each item that is not a NodeData * to be
   included in the balanced tree is set to NULL*/
-  void arrayToBSTree(NodeData* []);
+  //void arrayToBSTree(NodeData* []);
 
   /*adds a NodeData item to the Binary Tree. Inserts it into the correct
   position.*/
-  bool insert(const NodeData* n);
+  bool insert(NodeData* n);
 
   /*helper function that was included from lab2.cpp . This function helps
   visualize the BT by displaying it sidewas so as to aid with debugging*/
@@ -79,7 +79,7 @@ public:
   that replaces the Binary Tree on the left hand side with the tree on the
   right hand side. It uses a preorder traversal and copies each node one at a
   time from the rhsTree*/
-  BinTree& operator=(const BinTree &rhsTree);
+  //BinTree& operator=(const BinTree &rhsTree);
 
   /*overloaded equality operator. Compares two binary trees to determine if they
   are equal*/
@@ -117,8 +117,8 @@ private:
 
   /*Helper for the overloaded assignment operator. Allows for recursive calls
   in order to copy all items from the other tree*/
-  void copyHelper(Node*& current, Node* thisPrev, const Node* otherCurrent,
-        bool right);
+  //void copyHelper(Node*& current, Node* thisPrev, const Node* otherCurrent,
+  //      bool right);
 
   /*Helper for the equality overoaded operator. Allows for recursive comparisons
   of Nodes and the tree structure between the rhs and lhs trees*/
@@ -140,11 +140,11 @@ private:
 
   /*assists the BSTtoArray function by allowing for recursive traversal of the
   BST.*/
-  void toArrayHelper(const Node* current, NodeData* array[], int& index);
+  //void toArrayHelper(const Node* current, NodeData* array[], int& index);
 
   /*helper function for array to BST. This function alows for recursive calls to
   allow for creation of balanced tree*/
-  void balance(int low, int high, Node*& current, NodeData* array[]);
+//  void balance(int low, int high, Node*& current, NodeData* array[]);
 
 };
 

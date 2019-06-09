@@ -45,6 +45,16 @@ bool Drama::operator!=(const NodeData &other) const
 
 bool Drama::operator<(const NodeData &other) const
 {
+  if(typeid(*this)!= typeid(other))
+  {
+    string type1 = "7Classic";
+    if(type1.compare(typeid(other).name()) == 0)
+    {
+      return true;
+    }
+
+    return false;
+  }
   const Drama& otherMovie = dynamic_cast<const Drama&>(other);
 
   string thisDirector = (this->directorFirstName + " " + this->directorLastName);
@@ -69,6 +79,16 @@ bool Drama::operator<(const NodeData &other) const
 
 bool Drama::operator>(const NodeData &other) const
 {
+  if(typeid(*this)!= typeid(other))
+  {
+    string type1 = "7Classic";
+    if(type1.compare(typeid(other).name()) == 0)
+    {
+      return false;
+    }
+    return true;
+  }
+  
   const Drama& otherMovie = dynamic_cast<const Drama&>(other);
 
   string thisDirector = (directorFirstName + " " + directorLastName);
