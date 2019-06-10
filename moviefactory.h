@@ -32,7 +32,7 @@ public:
 
 	// Instantiating coresponding Movie object
 	//static Movie* createMovie(ifstream& in);
-	static Movie* createMovie(string in);
+	static Movie* createMovie(string in, bool& valid);
 
 };
 #endif

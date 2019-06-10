@@ -5,8 +5,9 @@ MovieFactory::MovieFactory()
 
 }
 
-Movie* MovieFactory::createMovie(string in)
+Movie* MovieFactory::createMovie(string in, bool& valid)
 {
+  valid = true;
   string input = in;
   Movie* M;
 
@@ -36,7 +37,7 @@ Movie* MovieFactory::createMovie(string in)
     return M;
   }
 
-  if(movieType == "C")
+  else if(movieType == "C")
   {
     string majorActorFirstName = "";
     string majorActorLastName = "";
@@ -50,7 +51,7 @@ Movie* MovieFactory::createMovie(string in)
          majorActorFirstName, majorActorLastName, title, month, year);
   }
 
-  if(movieType == "F")
+  else if(movieType == "F")
   {
     ss>>year;
     M = new Comedy(stoi(stock), directorFirstName, directorLastName, title, year);
@@ -58,7 +59,9 @@ Movie* MovieFactory::createMovie(string in)
   }
   else
   {
-    cout<<"Houston, we have a problem!"<<endl;
+    M = NULL;
+    cout<<"Invalid input of movie type: "<<movieType<<". Ignoring line..." <<endl;
+    valid = false;
   }
   return M;
 }

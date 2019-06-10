@@ -2,6 +2,7 @@
 #include "classic.h"
 #include "drama.h"
 #include "moviefactory.h"
+#include "business.h"
 
 #include <iostream>
 #include <iostream>
@@ -47,9 +48,10 @@ int main()
   NodeData* movie7;
   NodeData* movie8;
   MovieFactory MF;
-  movie7 = MF.createMovie("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942");
+  bool valid = true;
+  movie7 = MF.createMovie("C, 10, Michael Curtiz, Casablanca, Ingrid Bergman 8 1942", valid);
   cout<< *movie7<<endl;
-  movie8 = MF.createMovie("D, 10, Barry Levinson, Good Morning Vietnam, 1988");
+  movie8 = MF.createMovie("D, 10, Barry Levinson, Good Morning Vietnam, 1988", valid);
   cout<< *movie8<<endl;
 
 
@@ -59,11 +61,12 @@ int main()
   cout<<(typeid(*movie7).name())<<endl;
   cout<<(typeid(*movie8).name())<<endl;
 
+
   cout<<(*movie7 > *movie8)<<endl;
-  NodeData* movie9 = MF.createMovie("D, 10, Larry Levinson, Good Morning Vietnam, 1988");
+  NodeData* movie9 = MF.createMovie("D, 10, Larry Levinson, Good Morning Vietnam, 1988", valid);
   cout<<(typeid(*movie9).name())<<endl;
 
-  NodeData* movie10 = MF.createMovie("F, 10, Nora Ephron, Sleepless in Seattle, 1993");
+  NodeData* movie10 = MF.createMovie("F, 10, Nora Ephron, Sleepless in Seattle, 1993", valid);
   cout<< *movie10<<endl;
 
   cout<<"\n\n Creating a Bin Tree"<<endl;
@@ -75,6 +78,9 @@ int main()
   cout<<test1<<endl;
   cout<<endl;
 
-
+  cout<<"testing Business"<<endl;
+  Business B;
+  B.buildMovies("data4movies.txt");
+  cout<<B.movieStorage<<endl;
   return 0;
 }
