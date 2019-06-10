@@ -56,9 +56,13 @@ void Business::buildMovies(string fileName)
 
         //cout<<"the movie is: " <<movie<<endl;
         MovieFactory MF;
+        //valid line is a boolean that is set to false if there is an invalid input
+        //in the line that createMovie takes in.
         NodeData* newMovie = MF.createMovie(movie, validLine);
         if(validLine)
         {
+          //if something is invalid about the line that createMovie took in,
+          //then it will not insert that line and will simply skip to the next one. 
           movieStorage.insert(newMovie);
         }
     }
